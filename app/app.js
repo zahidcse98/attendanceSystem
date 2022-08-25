@@ -1,12 +1,16 @@
 require('dotenv').config('../.env');
 const express = require('express');
-const {errorHandler, notFoundHandler} = require('../error/error')
+const {errorHandler} = require('../error/error')
 const app = express();
 
+const {registerController, loginController} = require('../controller/auth');
 app.use(require('../middleware/middleware'));
 app.use(require('../routes/routes'));
 app.use(errorHandler);
-app.use(notFoundHandler);
+app.post('/register', registerController);
+
+app.post('/login', loginController);
+//app.use(notFoundHandler);
 
 
 

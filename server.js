@@ -2,10 +2,15 @@ require('dotenv').config();
 const http = require('http');
 const app = require('./app/app');
 const connectDB = require('./db/db');
+const {registerController, loginController} = require('./controller/auth');
 
 const server = http.createServer(app);
 
 const PORT = process.env.PORT || 8000;
+
+
+
+
 
 connectDB(`${process.env.DB_STRING}/${process.env.DB_NAME}`)
     .then(() => {
@@ -15,4 +20,3 @@ connectDB(`${process.env.DB_STRING}/${process.env.DB_NAME}`)
         })
     })
     .catch((e) => console.log(e))
-

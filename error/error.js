@@ -1,8 +1,8 @@
-const notFoundHandler = (req, res, next) =>{
-    const error = new Error("Resource not found!!");
-    error.status = 404;
-    next(error);
-}
+// const notFoundHandler = (req, res, next) =>{
+//     const error = new Error("Resource not found!!");
+//     error.status = 404;
+//     next(error);
+// }
 
 const errorHandler = (error, _req, res, _next) => {
     if(error.status) {
@@ -18,6 +18,5 @@ const errorHandler = (error, _req, res, _next) => {
 
 
 module.exports = {
-    errorHandler,
-    notFoundHandler
+    errorHandler
 }
